@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satu Akun Extension</title>
+    <script src="scripts/tailwind.js"></script>
+  </head>
+
+  <body class="w-96 p-2 rounded-md">
+    <h1 class="text-sm">Satu Akun Extensions</h1>
+
+    <div class="flex flex-col gap-4">
+      <div>
+        <label for="displayTextArea" class="block text-sm font-medium text-gray-700">Cookies:</label>
+        <textarea id="satuakun_displayTextArea" class="w-full h-24 border border-gray-300 p-2 mt-1" readonly></textarea>
+        <button
+          id="satuakun_copyCookiesButton"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+        >Copy Cookies</button>
+      </div>
+
+      <div>
+        <label for="inputTextArea" class="block text-sm font-medium text-gray-700">Set Cookies (Name=Value, one per line):</label>
+        <textarea id="satuakun_inputTextArea" class="w-full h-24 border border-gray-300 p-2 mt-1"></textarea>
+        <button
+          id="satuakun_setCookiesButton"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2"
+        >Set Cookies</button>
+      </div>
+    </div>
+  </body>
+
+  <script src="scripts/main.js"></script>
+</html>

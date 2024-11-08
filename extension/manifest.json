@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Satu Akun Extension",
+  "description": "Satu akun provide seamless access to multiple premium tools",
+  "version": "1.0",
+  "action": {
+    "default_popup": "main.html",
+    "default_icon": "default_icon.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/tailwind.js",
+        "scripts/init.js"
+      ],
+      "matches": [
+        "https://chatgpt.com/*"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "webRequest",
+    "tabs",
+    "cookies",
+    "scripting",
+    "activeTab",
+    "storage"
+  ]
+}
