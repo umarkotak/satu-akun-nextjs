@@ -1,32 +1,49 @@
 {
   "manifest_version": 3,
-  "name": "Satu Akun Extension",
-  "description": "Satu akun provide seamless access to multiple premium tools",
-  "version": "1.0",
+  "name": "Satu Akun",
+  "version": "1.9",
+  "description": "Seamless one access to premium tools",
+  "homepage_url": "https://satuakun.vercel.app",
   "action": {
-    "default_popup": "main.html",
-    "default_icon": "default_icon.png"
+      "default_popup": "./main.html"
   },
-  "content_scripts": [
-    {
-      "js": [
-        "scripts/tailwind.js",
-        "scripts/init.js"
-      ],
-      "matches": [
-        "https://chatgpt.com/*"
-      ]
-    }
-  ],
+  "background": {
+      "service_worker": "scripts/background.js"
+  },
+  "commands": {
+      "_execute_action": {
+          "suggested_key": {
+              "windows": "Alt+Shift+G",
+              "mac": "Alt+Shift+G",
+              "chromeos": "Alt+Shift+G",
+              "linux": "Alt+Shift+G"
+          }
+      }
+  },
   "host_permissions": [
-    "<all_urls>"
+      "*://*/*"
   ],
   "permissions": [
-    "webRequest",
-    "tabs",
-    "cookies",
-    "scripting",
-    "activeTab",
-    "storage"
-  ]
+      "cookies",
+      "declarativeNetRequest",
+      "browsingData"
+  ],
+  "content_scripts": [
+      {
+          "matches": [
+              "*://animapu.vercel.app/*",
+              "*://chatgpt.com/*",
+              "*://www.turnitin.com/*",
+              "*://www.netflix.com/*"
+          ],
+          "js": [
+              "scripts/init.js"
+          ],
+          "run_at": "document_end"
+      }
+  ],
+  "icons": {
+      "16": "./default_icon.png",
+      "128": "./default_icon.png"
+  }
 }
